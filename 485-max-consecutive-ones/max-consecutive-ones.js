@@ -10,10 +10,8 @@ var findMaxConsecutiveOnes = function(a) {
            currCount++;
         }
         else {
-            if(currCount >  maxCount) {
-                maxCount = currCount;
-            }
-            currCount = 0;
+           maxCount =  Math.max(currCount,maxCount);
+           currCount = 0;
         }
     }
      if (currCount > maxCount) {
