@@ -13,13 +13,10 @@ const sortArray = (arr)=> {
 
 }
 const merge=(arr1,arr2)=> {
-    let arr = [];
-    let m = arr1.length;
-    let n = arr2.length;
-    let p1 = m -1 ;
-    let p2 = n -1 ;
-
-    for(let i=(m+n)-1;i>=0;i--) {
+     let arr = [];
+    let p1 = arr1.length-1;
+    let p2 = arr2.length-1;
+    for(let i=(arr1.length+arr2.length)-1 ; i>=0;i--) {
         if(p1>=0 && (p2<0 || arr1[p1]>arr2[p2])) {
             arr[i] = arr1[p1];
             p1--;
@@ -27,5 +24,5 @@ const merge=(arr1,arr2)=> {
             arr[i] = arr2[p2];
             p2--;
         }
-    }return arr
+    }return arr;
 }
