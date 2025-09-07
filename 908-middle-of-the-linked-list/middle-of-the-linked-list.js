@@ -11,10 +11,12 @@
  */
 ;
 var middleNode = (head)=> {
-    let fast =  head;
-    let slow =  head;
+    // let fast =  head;
+    // let slow =  head;
+    let slow =  fast = head;
 
-    while(fast!=null  && fast.next!=null) {
+    // while(fast!=null  && fast.next!=null) {
+         while(fast&& fast.next) {
         fast = fast.next.next;
         slow = slow.next;
     }
