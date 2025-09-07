@@ -10,16 +10,14 @@
  * @return {ListNode}
  */
 ;
-function middleNode(head) {
-    const nodes = [];
-    let curr = head;
+var middleNode = (head)=> {
+    let fast =  head;
+    let slow =  head;
 
-    // store all nodes in an array
-    while (curr!=null) {
-        nodes.push(curr);
-        curr = curr.next;
+    while(fast!=null  && fast.next!=null) {
+        fast = fast.next.next;
+        slow = slow.next;
     }
+             return slow;
 
-    // return the middle node (second middle if even length)
-    return nodes[Math.floor(nodes.length / 2)];
 }
