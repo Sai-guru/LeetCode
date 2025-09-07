@@ -15,7 +15,7 @@ function middleNode(head) {
     let curr = head;
 
     // store all nodes in an array
-    while (curr) {
+    while (curr!=null) {
         nodes.push(curr);
         curr = curr.next;
     }
