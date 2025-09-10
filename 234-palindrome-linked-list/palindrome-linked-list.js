@@ -19,14 +19,13 @@ var isPalindrome = function(head) {
         arr.push(curr.val);
         curr =  curr.next;
     }
-    let newArr = [...arr];
-    let n =  newArr.length;
-    for(let i=0;i<Math.floor(n/2);i++) {
-        let temp = newArr[i];
-        newArr[i] = newArr[n-(i+1)];
-        newArr[n-(i+1)] = temp;
-    }
-    // if(arr === newArr) return true ;
-    // else false ;
+    // let newArr = [...arr];
+    let newArr = [...arr].reverse(); 
+    // let n =  newArr.length;
+    // for(let i=0;i<Math.floor(n/2);i++) {
+    //     let temp = newArr[i];
+    //     newArr[i] = newArr[n-(i+1)];
+    //     newArr[n-(i+1)] = temp;
+    // }
       return arr.join() === newArr.join();
 };
