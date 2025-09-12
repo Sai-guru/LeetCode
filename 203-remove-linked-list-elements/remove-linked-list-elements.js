@@ -15,17 +15,16 @@ var removeElements = function(head, val) {
     let senti = new ListNode();
     senti.next = head;
     let prev =  senti;
-    let curr = head;
-
-    while(curr) {
-        if(curr.val==val) {
+   
+    while(prev && prev.next) {
+        if(prev.next.val==val) {
             prev.next = prev.next.next;
-            curr =  curr.next;
+        
         }else {
             prev = prev.next;
-            curr =  curr.next;
-            // prev = prev.next
+          
         }
     }return senti.next;
     
 };
+
