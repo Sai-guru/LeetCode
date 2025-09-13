@@ -14,27 +14,21 @@ var removeNthFromEnd = function(head, n) {
 
     let senti = new ListNode();
     senti.next = head;
+    let second = senti;
+    let first =  senti;
 
-    let prev  = senti;
-    let curr = head;
-    let size = 0;
-    
-    while(curr) {
-        size++;
-        curr =  curr.next;
+//reach that end first , then from there
+    for(let i=0;i<=n;i++){
+        first = first.next;
     }
 
-    if(size==n) return head.next;
-
-  //now calculate the prev pos...
-    let prevOfTarget = size-n;
-
-   for(let i=0;i<prevOfTarget;i++) {
-    prev =  prev.next;
-   }
-   prev.next =  prev.next.next;
-   return head;
+  // we can easilt track and go ....
+    while(first) {
+        first = first.next;
+        second =  second.next;
+    }
+    second.next = second.next.next;
+    return senti.next;
 
 
-
-};
+}; 
