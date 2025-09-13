@@ -16,7 +16,7 @@ var removeNthFromEnd = function(head, n) {
     senti.next = head;
     let first = second = senti;
     
-//reach that end first , then from there
+//reach that place first , then from there
     for(let i=0;i<=n;i++){
         first = first.next;
     }
