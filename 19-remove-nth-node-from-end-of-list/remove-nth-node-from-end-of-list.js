@@ -11,22 +11,30 @@
  * @return {ListNode}
  */
 var removeNthFromEnd = function(head, n) {
+
+    let senti = new ListNode();
+    senti.next = head;
+
+    let prev  = senti;
+    let curr = head;
     let size = 0;
-    let curr =  head;
-    while(curr) {
-        size++ ;
-        curr =  curr.next;
-    }
-
-    if(n==size) return head.next;
-
-
-    curr =  head;
-    // for(let i=0;i<size-n;i++) {
-        for(let i=0;i<size-(n+1);i++) {
-        curr =  curr.next;
-    }
-    curr.next = curr.next.next;
-    return head;
     
+    while(curr) {
+        size++;
+        curr =  curr.next;
+    }
+
+    if(size==n) return head.next;
+
+  //now calculate the prev pos...
+    let prevOfTarget = size-n;
+
+   for(let i=0;i<prevOfTarget;i++) {
+    prev =  prev.next;
+   }
+   prev.next =  prev.next.next;
+   return head;
+
+
+
 };
