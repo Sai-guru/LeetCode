@@ -14,9 +14,8 @@ var removeNthFromEnd = function(head, n) {
 
     let senti = new ListNode();
     senti.next = head;
-    let second = senti;
-    let first =  senti;
-
+    let first = second = senti;
+    
 //reach that end first , then from there
     for(let i=0;i<=n;i++){
         first = first.next;
