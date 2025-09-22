@@ -16,7 +16,7 @@ var numJewelsInStones = function(jewels, stones) {
     //     }
     // }return count;
 
-     //just chumma
+   
     let jewelsSet = new Set(jewels);
     let count = 0;
 
