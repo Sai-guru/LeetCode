@@ -5,8 +5,8 @@
  */
 var numJewelsInStones = function(jewels, stones) {
     
-    // jewels = jewels.split('');
-    // stones = stones.split('');
+    // jewels = jewels.split('');   //just chumma
+    // stones = stones.split('');    //just chumma
     // let count = 0;
 
     // for(let i=0;i<stones.length;i++) {
@@ -16,7 +16,7 @@ var numJewelsInStones = function(jewels, stones) {
     //     }
     // }return count;
 
-    stones = stones.split('');
+     //just chumma
     let jewelsSet = new Set(jewels);
     let count = 0;
 
