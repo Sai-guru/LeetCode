@@ -11,8 +11,7 @@ var maxFreqSum = function(s) {
         else map[s[i]]++;
     }
        console.log(map);
-    
-
+       
     let maxC = maxV = 0;
     let vowels = ['a','e','i','o','u'];
     let mapKeys = Object.keys(map);
