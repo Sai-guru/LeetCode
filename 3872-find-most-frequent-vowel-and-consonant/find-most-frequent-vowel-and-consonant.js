@@ -13,12 +13,13 @@ var maxFreqSum = function(s) {
 
     let maxC = maxV = 0;
     let vowels = ['a','e','i','o','u'];
+    let mapKeys = Object.keys(map);
 
-    for(let i=0;i<s.length;i++) {
-        if(vowels.includes(s[i])) {
-            maxV = Math.max(maxV,map[s[i]]);
+    for(let i=0;i<mapKeys.length;i++) {
+        if(vowels.includes(mapKeys[i])) {
+            maxV = Math.max(maxV,map[mapKeys[i]]);
         }else {
-            maxC = Math.max(maxC,map[s[i]]);
+            maxC = Math.max(maxC,map[mapKeys[i]]);
         } 
     }return maxV+maxC;
 };
