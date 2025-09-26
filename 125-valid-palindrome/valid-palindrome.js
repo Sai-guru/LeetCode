@@ -3,20 +3,24 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-     
-    s = s.toLowerCase();
-    let filteredStr = "";
-    let revStr = "";
 
-    for(let i=0;i<s.length;i++){
-        if(s[i].match(/[a-z0-9]/i)) {
-            filteredStr += s[i];
-            // rev = s[i]+ rev;  single line instead of 2nd for loop
-        }
+   s = s.toLowerCase();
+   let i=0;
+   let j = s.length-1;
+   while(i<j) {
+    if(!s[i].match(/[a-z0-9]/i)) i++;
+    else if(!s[j].match(/[a-z0-9]/i)) j--;
+
+    else if(s[i]===s[j]) {
+        // let temp = s[i];
+        // s[i] = s[j];
+        // s[j] = temp;
+        j--;
+        i++;
+    }else {
+        return false;
     }
-    // let revStr =  [...filteredStr].reverse().join('');
-    for(let i= filteredStr.length-1;i>=0;i--){
-        revStr += filteredStr[i];
-    }
-    return filteredStr === revStr;
+   } return true;
+
+
 }; 
