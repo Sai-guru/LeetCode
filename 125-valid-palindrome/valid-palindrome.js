@@ -13,9 +13,28 @@ var isPalindrome = function(s) {
         }
     }
 
-    // console.log(filteredStr)
-    let revStr =  [...filteredStr].reverse().join('');
+    console.log(filteredStr)
+    // let revStr =  [...filteredStr].reverse().join('');
+    let revStr = "";
+    for(let i= filteredStr.length-1;i>=0;i--){
+        revStr += filteredStr[i];
+    }
+    console.log(revStr);
     return filteredStr === revStr;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // s = s.toLowerCase().split('');
