@@ -9,14 +9,14 @@ var isAnagram = function(s, t) {
 
     const sArr = [...s];
     sArr.sort();
-    console.log(sArr);
+    // console.log(sArr);
     const tArr = [...t];
     tArr.sort();
-     console.log(tArr);
+    //  console.log(tArr);
 
     for(let i=0;i<sArr.length;i++) {
         if(sArr[i]!==tArr[i]) return false;
-        
+
     } return true;
 
 
