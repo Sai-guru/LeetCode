@@ -2,25 +2,25 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
+
+
 var groupAnagrams = function(strs) {
     let map = {};
-    for(let i=0;i<strs.length;i++) {
-
-        let sortedWord = strs[i].split('').sort().join('');
-
-        if(map[sortedWord]){
-            map[sortedWord].push(strs[i]);
-            // console.log(map)
+    for(let i=0;i<strs.length;i++){
+        // create a key stored in an arr
+        let freqArr = Array(26).fill(0);  //[0,0,0,.....26th 0];
+        let currS = strs[i];
+        for(j=0;j<currS.length;j++) {
+            let index  = currS[j].charCodeAt() - 'a'.charCodeAt();
+            freqArr[index]++;
         }
-        else map[sortedWord] = [strs[i]];
-    }
-    // let keys = Object.keys(map);
-    // let res = [];
+        let key = '';
+        for(let i=0;i<26;i++) {
+            key+= String.fromCharCode(i)+freqArr[i];
+        }
+        if(!map[key]) map[key] = [currS];
+        else map[key].push(currS);
 
-    // for(let i=0;i<keys.length;i++) {
-    //     res.push(map[keys[i]]);
-    // }
-    // return res;
+    }
     return [...Object.values(map)];
-    
 };
