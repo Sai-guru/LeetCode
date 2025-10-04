@@ -1,7 +1,7 @@
 
 var MyStack = function() {
     this.q1 = [];
-    this.q2 = [];
+    
 };
 
 /** 
@@ -10,6 +10,7 @@ var MyStack = function() {
  */
 MyStack.prototype.push = function(x) {
     this.q1.push(x);
+    
 };
 
 /**
@@ -17,16 +18,11 @@ MyStack.prototype.push = function(x) {
  */
 MyStack.prototype.pop = function() {
     let n = this.q1.length;
-    for(let i=0;i<n-1;i++){
-        this.q2.push(this.q1.shift());  //curr removing element then put into q2
-    }
-    let ans = this.q1.shift();  //one and only left 
-    let temp = this.q1;
-    this.q1 = this.q2;
-    this.q2 = temp;
-
-    return ans;  // this is the last elemnent (accorading to stack by queue)
-    
+    for(let i=0;i<n-1;i++) {
+        this.q1.push(this.q1.shift());
+    } 
+    return this.q1.shift();
+   
 };
 
 /**
@@ -35,24 +31,20 @@ MyStack.prototype.pop = function() {
 MyStack.prototype.top = function() {
     let n = this.q1.length;
     for(let i=0;i<n-1;i++) {
-        this.q2.push(this.q1.shift());
+        this.q1.push(this.q1.shift());
     }
-    let frontOfq1 = this.q1[0];
-    this.q2.push(this.q1.shift());
-
-    let temp = this.q1;
-    this.q1 = this.q2;
-    this.q2 = temp;
-
-    return frontOfq1;
+    let top = this.q1[0];
+    this.q1.push(top);
+    this.q1.shift();
+    return top;
+    
 };
 
 /**
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-
-    return (this.q1.length == 0);
+    return this.q1.length == 0;
     
 };
 
