@@ -33,10 +33,10 @@ MyStack.prototype.top = function() {
     for(let i=0;i<n-1;i++) {
         this.q1.push(this.q1.shift());
     }
-   // let top = this.q1[0];
-    this.q1.push(this.q1[0]);
-    return this.q1.shift();
-    // return top;
+    let top = this.q1[0];
+    this.q1.push(top);
+    this.q1.shift();
+    return top;
     
 };
 
