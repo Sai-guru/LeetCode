@@ -16,45 +16,51 @@ MyQueue.prototype.push = function(x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-    let n = this.s1.length;
-    for(let i=0;i<n-1;i++) {
-        this.s2.push(this.s1.pop());
-    }
-    let ans = this.s1.pop();
+    // let n = this.s1.length;
+    // for(let i=0;i<n-1;i++) {
+    //     this.s2.push(this.s1.pop());
+    // }
+    // let ans =  this.s1.pop();
 
-    let m = this.s2.length;
-    for(let i=0;i<m;i++) {
-        this.s1.push(this.s2.pop());
-    }
-    return ans;
-
-    
+    // let m = this.s2.length;
+    // for(let i=0;i<m;i++) {
+    //     this.s1.push(this.s2.pop());
+    // }
+    // return ans;
+    if(this.s2.length == 0) {
+        while(this.s1.length) {
+            this.s2.push(this.s1.pop())
+        }
+    } return this.s2.pop();
 };
-
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-     let n = this.s1.length;
-    for(let i=0;i<n-1;i++) {
-        this.s2.push(this.s1.pop());
-    }
-    let ans = this.s1[this.s1.length - 1];
-    this.s2.push(this.s1.pop())
+    //  let n = this.s1.length;
+    // for(let i=0;i<n-1;i++) {
+    //    this.s2.push(this.s1.pop());
+    // }
+    // let ans =  this.s1[this.s1.length-1];
+    // this.s2.push(this.s1.pop());
 
-    let m = this.s2.length;
-    for(let i=0;i<m;i++) {
-        this.s1.push(this.s2.pop());
-    }
-    return ans;
-   
+    //  let m = this.s2.length;
+    // for(let i=0;i<m;i++) {
+    //     this.s1.push(this.s2.pop());
+    // }
+    // return ans;
+    if(this.s2.length == 0) {
+        while(this.s1.length) {
+            this.s2.push(this.s1.pop())
+        }
+    } return this.s2[this.s2.length-1];
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function() {
-    return this.s1.length === 0; 
+    return this.s1.length === 0 && this.s2.length ===0 ;
     
 };
 
@@ -66,3 +72,4 @@ MyQueue.prototype.empty = function() {
  * var param_3 = obj.peek()
  * var param_4 = obj.empty()
  */
+
