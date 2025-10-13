@@ -2,26 +2,24 @@
  * @param {number[]} temperatures
  * @return {number[]}
  */
-var dailyTemperatures = function(temp) {
+var dailyTemperatures = function(arr) {
     let stack = [];
-    let res = [];
-    let n = temp.length;
-    stack.push([temp[n-1],n-1]);
-    res.push(0);
+    let n = arr.length;
+    let res = Array(n).fill(0);
+
+    stack.push(n-1);
 
     for(let i=n-2;i>=0;i--) {
-        
-        while(stack.length && temp[i]>=stack[stack.length-1][0]) {
-            stack.pop();
-        }
-        
-        if(stack.length==0) res.push(0);
-        else res.push(stack[stack.length-1][1]-i);
-        stack.push([temp[i],i]);
-        
-    }
-   
-    return res.reverse();
+        while(stack.length) {
+            let top = stack[stack.length-1];
+            if(arr[i]>=arr[top]) stack.pop();
+            else {
+                res[i] = top - i;
+                break;
+            }
+        }stack.push(i);
+    } 
+    return res;
 
 
 
