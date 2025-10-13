@@ -12,11 +12,10 @@ var dailyTemperatures = function(arr) {
     for(let i=n-2;i>=0;i--) {
         while(stack.length) {
             let top = stack[stack.length-1];
-            if(arr[i]>=arr[top]) stack.pop();
-            else {
+            if(arr[i]<arr[top]){
                 res[i] = top - i;
                 break;
-            }
+            }else stack.pop();
         }stack.push(i);
     } 
     return res;
