@@ -13,13 +13,14 @@ var dailyTemperatures = function(temp) {
         
         while(stack.length && temp[i]>=stack[stack.length-1][0]) {
             stack.pop();
-           
         }
+        
         if(stack.length==0) res.push(0);
         else res.push(stack[stack.length-1][1]-i);
         stack.push([temp[i],i]);
         
     }
+   
     return res.reverse();
 
 
