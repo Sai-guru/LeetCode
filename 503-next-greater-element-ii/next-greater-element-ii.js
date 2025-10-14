@@ -6,7 +6,6 @@ var nextGreaterElements = function(nums) {
     let stack = [];
     let n = nums.length;
     let res = [];
-    if(n==0) return ;
     
     for(let i=2*n-1;i>=0;i--) {
          let currVal = nums[i%n];
