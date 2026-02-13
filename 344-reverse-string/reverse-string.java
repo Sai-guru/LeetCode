@@ -1,0 +1,16 @@
+class Solution {
+    public void reverseString(char[] s) {
+
+        int n = s.length;
+        for(int i = 0;i<Math.floor(n/2);i++) {
+            // swap(i,n-(i+1));
+            char temp = s[i];
+            s[i] = s[n-(i+1)];
+            s[n-(i+1)] =  temp;
+
+        }
+        
+
+        
+    }
+}
