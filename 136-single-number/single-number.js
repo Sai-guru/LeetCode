@@ -2,23 +2,20 @@
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(a) {
+var singleNumber = function(nums) {
 
-    // let hash = {};
-    // for(let i=0;i<a.length;i++) {
-    //     if(!hash[a[i]]) {
-    //          hash[a[i]] = 1;
-    //     } else {
-    //          hash[a[i]]++;
-    //     }
-    // }
-    // for(let i=0;i<a.length;i++) {
-    //    if( hash[a[i]] == 1) {
-    //     return a[i];
-    //    }
-    // }
-    let xorIdent = 0;
-    for(let i=0;i<a.length;i++) {
-       xorIdent = xorIdent^a[i];
-    }return xorIdent;
+    const map = new Map();
+
+    for(let i=0;i<nums.length;i++) {
+        if(!map.has(nums[i])) map.set(nums[i],1);
+        else map.set(nums[i],map.get(nums[i]) + 1);
+    }
+    console.log(map);
+
+    for(let i=0;i<nums.length;i++) {
+
+        if(map.get(nums[i])==1) return nums[i];
+    }
+
+    
 };
