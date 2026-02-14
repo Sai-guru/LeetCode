@@ -4,17 +4,16 @@
  */
 var singleNumber = function(nums) {
 
-    const map = new Map();
+    const obj = {};
 
     for(let i=0;i<nums.length;i++) {
-        if(!map.has(nums[i])) map.set(nums[i],1);
-        else map.set(nums[i],map.get(nums[i]) + 1);
+        if(!obj[nums[i]]) obj[nums[i]] = 1;
+        else obj[nums[i]]++;
     }
-    console.log(map);
 
     for(let i=0;i<nums.length;i++) {
 
-        if(map.get(nums[i])==1) return nums[i];
+        if(obj[nums[i]]==1) return nums[i];
     }
 
     
