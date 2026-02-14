@@ -13,8 +13,8 @@ class Solution {
             }
         }
 
-       maxC= Math.max(currC,maxC);
-        return maxC;
+      return Math.max(currC,maxC);
+        
         
     }
 }
