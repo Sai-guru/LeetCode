@@ -9,7 +9,7 @@ class Solution {
             int mid = ((l+r)/2);
 
             if(arr[mid]==tar) return mid;
-
+            
             if(tar>arr[mid]) l=mid+1;
             else r=mid-1;
         }
