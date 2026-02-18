@@ -52,6 +52,7 @@ class MyLinkedList {
             addAtHead(val);
         } else if (index == size) {
             addAtTail(val);
+            
         } else {
             Node curr = head;
             for (int i = 0; i < index - 1; i++) {
