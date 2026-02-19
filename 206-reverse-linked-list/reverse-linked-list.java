@@ -14,7 +14,7 @@ class Solution {
         ListNode prev =  null;
         ListNode curr = head;
 
-        while(curr!=null) {
+        while(curr!=null) { //till curr exists
             ListNode temp = curr.next;
             curr.next = prev;
 
@@ -24,8 +24,5 @@ class Solution {
         head = prev;
 
         return head;
-
-
-        
     }
 }
