@@ -8,8 +8,8 @@ class MyLinkedList {
         }
     }
 
-    private Node head;
-    private int size;
+    Node head;
+    int size;
 
     public MyLinkedList() {
         this.head = null;
@@ -34,11 +34,12 @@ class MyLinkedList {
 
     public void addAtTail(int val) {
         Node newNode = new Node(val);
-        if (head == null) {
-            head = newNode;
-        } else {
+        
+        if (head==null) {head = newNode;}
+
+        else {
             Node curr = head;
-            while (curr.next != null) {
+            while (curr.next!=null) {
                 curr = curr.next;
             }
             curr.next = newNode;
@@ -48,17 +49,16 @@ class MyLinkedList {
 
     public void addAtIndex(int index, int val) {
         if (index < 0 || index > size) return;
-        if (index == 0) {
-            addAtHead(val);
-        } else if (index == size) {
-            addAtTail(val);
-            
-        } else {
+        if (index == 0) { addAtHead(val);}
+        else if (index == size) { addAtTail(val); } 
+         
+        else {
             Node curr = head;
+            Node newNode = new Node(val);
+
             for (int i = 0; i < index - 1; i++) {
                 curr = curr.next;
             }
-            Node newNode = new Node(val);
             newNode.next = curr.next;
             curr.next = newNode;
             size++;
@@ -67,9 +67,9 @@ class MyLinkedList {
 
     public void deleteAtIndex(int index) {
         if (index < 0 || index >= size) return;
-        if (index == 0) {
-            head = head.next;
-        } else {
+        if (index == 0) {head = head.next; }
+
+        else {
             Node curr = head;
             for (int i = 0; i < index - 1; i++) {
                 curr = curr.next;
