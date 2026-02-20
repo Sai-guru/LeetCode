@@ -14,17 +14,37 @@
 
 var hasCycle = function(head) {
     
-    let curr = head;
-    let set = new Set();
+    // let curr = head;
+    // let set = new Set();
 
-    while(curr) {
-        if(set.has(curr)) return true;
+    // while(curr) {
+    //     if(set.has(curr)) return true;
         
-        set.add(curr);
-        curr = curr.next;
+    //     set.add(curr);
+    //     curr = curr.next;
         
+    // }
+    // return false;
+
+    //Approach 2 - Floyd's cycle
+
+    if(!head) return false;
+
+    let slow = head;
+    let fast = head.next;
+
+    while(slow!=fast){
+
+        if(!fast || !fast.next) return false;
+        fast = fast.next.next;
+        slow = slow.next;
     }
-    return false;
+
+    return true;
+
+    
+
+
 };
 
 
