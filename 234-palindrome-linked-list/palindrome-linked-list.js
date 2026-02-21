@@ -10,101 +10,68 @@
  * @return {boolean}
  */
 
+     
+    // let arr = [];
+    // let curr = head;
+    // while(curr) {
+
+    //     arr.push(curr.val);
+    //     curr = curr.next;
+    // }
+    // let newArr = [...arr];
+    // let n = newArr.length;
+
+    // for(let i=0;i<Math.floor(n/2);i++) {
+    //     let temp = newArr[i];
+    //     newArr[i] = newArr[n-(i+1)];
+    //     newArr[n-(i+1)] = temp;
+    // }
+    // return arr.join()===newArr.join();
 
 var isPalindrome = function(head) {
-     
-    let arr = [];
-    let curr = head;
+
+
+    // Main and pakka approach
+
+    // part 1 - find the middle element first..
+
+    let slow = fast = head;
+    
+    while(fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
+
+    //now slow is the mid element here.. so take it as curr for part 2..
+    let curr = slow;
+
+    //part 2 - Reverse the balance linkedlist from slow( which is curr)..
+    
+    let prev = null;
 
     while(curr) {
-
-        arr.push(curr.val);
-        curr = curr.next;
+        let temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
     }
 
-    let newArr = [...arr];
-    let n = newArr.length;
+    // here prev is our curr reveresed LL - for part 3
 
-    for(let i=0;i<Math.floor(n/2);i++) {
-        let temp = newArr[i];
-        newArr[i] = newArr[n-(i+1)];
-        newArr[n-(i+1)] = temp;
+    // part 3 - compare 1st half (using head) and 2nd half using prev , 
+    // then get close , if not equals then return false , else after the loop
+    // ends it must return true. That means balanced and ended , thus 
+    //palindrome occurs so return true..
+
+    let firstLL = head;
+    let secondLL = prev;
+
+    while(secondLL) {
+        if(firstLL.val !== secondLL.val) return false;
+        
+        firstLL = firstLL.next;
+        secondLL = secondLL.next;
     }
-
-    return arr.join()===newArr.join();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //1st : find the middle
-    // let slow = fast = head;
-    // while(fast && fast.next) {
-    //     slow =  slow.next;
-    //     fast =  fast.next.next;
-    // } //now slow the middle node(element)
-
-    // //2nd : Reverse the 2nd half of the linked list
-
-    // let prev = null;
-    // let curr = slow;
-    // while(curr) {
-    //     let temp =  curr.next;
-    //     curr.next =  prev;
-    //     prev = curr;
-    //     curr = temp;
-    // }   //now prev is the end of the whole linked list OR 
-    // // we can say as head of the reversed 2nd half ll
-
-
-    // //3rd : compare the both from head and end and reach near to check this ...
-
-    // let firstll =  head;
-    // let secondll =  prev;
-
-    // while(secondll) {
-    //     if(firstll.val !=  secondll.val) return false;
-
-    //     firstll = firstll.next;
-    //     secondll = secondll.next;
-
-    // } return true;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return true;
 
 };
