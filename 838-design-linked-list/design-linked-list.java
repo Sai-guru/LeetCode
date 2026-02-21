@@ -1,4 +1,8 @@
 class MyLinkedList {
+
+    private Node head;
+    private int size;
+
     class Node {
         int val;
         Node next;
@@ -7,9 +11,6 @@ class MyLinkedList {
             this.next = null;
         }
     }
-
-    Node head;
-    int size;
 
     public MyLinkedList() {
         this.head = null;
