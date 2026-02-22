@@ -13,20 +13,18 @@
  */
 var getIntersectionNode = function(headA, headB) {
 
-      let curr = headB;
-      let a = headA;
 
-    let set =  new Set();
-// store the whole B into the set first
-    while(curr){
-        set.add(curr);
-        curr =  curr.next;
+    let set = new Set();
+
+    while(headB) {
+        set.add(headB);
+        headB = headB.next;
     }
-    //then check whether a has that element or not ...
-    while(a) {
-        if(set.has(a)) {
-            return a;
-        }
-        a = a.next;
-    }return null;
+
+    while(headA){
+        if(set.has(headA)) return headA;
+
+        headA = headA.next;
+    }
+    return null;
 };
