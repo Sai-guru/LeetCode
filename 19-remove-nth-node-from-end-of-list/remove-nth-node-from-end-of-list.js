@@ -12,22 +12,23 @@
  */
 var removeNthFromEnd = function(head, n) {
 
-    let senti = new ListNode();
-    senti.next = head;
-    let first = second = senti;
-    
-//reach that place first , then from there
-    for(let i=0;i<=n;i++){
-        first = first.next;
+    let size = 0;
+    let curr = head;
+
+    while(curr) {
+        size++;
+        curr = curr.next;
     }
 
-  // we can easilt track and go ....
-    while(first) {
-        first = first.next;
-        second =  second.next;
+    if(n==size) return head.next;
+    curr = head;
+    for(let i=0;i<size-(n+1);i++) {
+        curr = curr.next;
     }
-    second.next = second.next.next;
-    return senti.next;
+    curr.next = curr.next.next;
+    return head;
+
+    
 
 
 }; 
