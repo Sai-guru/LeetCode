@@ -58,16 +58,24 @@ var removeNthFromEnd = function(head, n) {
 
     let first = second = senti;
 
-    for(let i=0;i<n;i++) {
-        first= first.next;
-    }
-    
+    // Now reach the prevTarget by first ptr
 
+    // for(let i=0;i<n;i++) {
+    //     first= first.next;
+    // }  // both loops works use any of them //
+    while(n!=0){
+        first= first.next;
+        n--;
+        
+    }
+   //now after reaching , go till end  then that same
+   //one step 2nd ptr will also travel;
     while(first && first.next) {
         first = first.next;
         second = second.next;
 
     }
+    //golden line
     second.next = second.next.next;
     return senti.next;
 
