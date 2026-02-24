@@ -28,31 +28,51 @@
     // curr.next = curr.next.next;
     // return head;
 
+// ---almost same as above , just used senti and place standing ..
+ // same as above , but just for making senti;
 
+    // let senti = new ListNode();
+    // senti.next = head;
+    // let prev = senti;
+    // let curr = head;
+    // let size = 0;
+
+    // while(curr) {
+    //     size++;
+    //     curr = curr.next;
+    // }
+    // if(n==size) return head.next;
+    // let prevOfTarget = size-n;
+
+    // for(let i=0;i<prevOfTarget;i++) {
+    //     prev = prev.next;
+    // }
+
+    // prev.next = prev.next.next;
+    // return head;
 
 var removeNthFromEnd = function(head, n) {
 
-    // same as above , but just for making senti;
-
     let senti = new ListNode();
     senti.next = head;
-    let prev = senti;
-    let curr = head;
-    let size = 0;
 
-    while(curr) {
-        size++;
-        curr = curr.next;
+    let first = second = senti;
+
+    for(let i=0;i<n;i++) {
+        first= first.next;
     }
-    if(n==size) return head.next;
-    let prevOfTarget = size-n;
+    
 
-    for(let i=0;i<prevOfTarget;i++) {
-        prev = prev.next;
+    while(first && first.next) {
+        first = first.next;
+        second = second.next;
+
     }
+    second.next = second.next.next;
+    return senti.next;
 
-    prev.next = prev.next.next;
-    return head;
+
+   
 
 
 
