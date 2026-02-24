@@ -56,21 +56,31 @@ class Solution {
         ListNode first = senti;
         ListNode second = senti;
 
-        for(int i=0;i<n;i++) {
+       // Now reach the prevTarget by first ptr
+       // both loops works use any of them //
+
+        // for(int i=0;i<n;i++) {
+        //     first = first.next;
+        // }
+
+        while(n!=0) {
             first = first.next;
+            n--;
         }
+
+
+        //now after reaching , go till end  then that same
+        //one step 2nd ptr will also travel;
 
         while(first!=null && first.next!=null) {
             first = first.next;
             second = second.next;
         }
-
+        
+        //golden line
         second.next = second.next.next;
-        return senti.next;
+        return senti.next; 
 
-
-
-     
-    
-}   
+        
+    }
 }
