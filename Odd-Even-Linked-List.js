@@ -24,7 +24,7 @@
 24        even =  even.next;
 25
 26    }
-27    odd.next= evenStart;
+27    odd.next = evenStart;
 28    return head;
 29    
 30};
