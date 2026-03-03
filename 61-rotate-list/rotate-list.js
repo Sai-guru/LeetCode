@@ -11,7 +11,10 @@
  * @return {ListNode}
  */
 var rotateRight = function(head, k) {
+       
+       
         if(!head || !head.next) return head;
+
 // first get the length(size);
 
     let length = 0;
@@ -20,9 +23,10 @@ var rotateRight = function(head, k) {
         length++;
         curr =  curr.next;
         }
+        //remove unwanted rots..
     k = k%length;
 
-//our known logic code ...
+//maai -- our known logic code ...
     let fast =  slow = head;
 
     for(let i=0;i<k;i++) {
