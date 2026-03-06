@@ -32,6 +32,7 @@ var lengthOfLastWord = function(s) {
                let c= 0;
 
                while(n>=0) {
+                
                 if(s[n]!=' ') {
                     c++;
                 }
