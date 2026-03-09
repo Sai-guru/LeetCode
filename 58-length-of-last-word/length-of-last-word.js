@@ -39,9 +39,10 @@ var lengthOfLastWord = function(s) {
                 else if(c>0) {
                     
                     break;
-                }n--;
+                }
+                n--;
 
-               }return c;
+               } return c;
 
 
 
