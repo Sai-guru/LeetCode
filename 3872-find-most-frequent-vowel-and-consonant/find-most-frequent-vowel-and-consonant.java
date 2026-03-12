@@ -13,8 +13,7 @@ class Solution {
 
         Set<Character> vowelSet = new HashSet<>(Arrays.asList('a', 'e', 'i', 'o', 'u'));
 
-        for(int i=0;i<s.length();i++) {
-            char x = s.charAt(i);
+        for(char x : map.keySet()) {
             
             if(vowelSet.contains(x)) maxV = Math.max(maxV,map.get(x));
             else maxC = Math.max(maxC,map.get(x));
