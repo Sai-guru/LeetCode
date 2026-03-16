@@ -7,17 +7,19 @@ var isPalindrome = function(s) {
 
     //filtered value 
     let filteredStr = "";
-    let revStr = "";
+    // let revStr = "";
 
     for(let i=0;i<s.length;i++) {
-        // if(s[i].match(/[a-z0-9]/i)) filteredStr += s[i];
-        if((s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9'))  {
-            filteredStr += s[i];
-            revStr = s[i] + revStr
-        }
+        if(s[i].match(/[a-z0-9]/i)) filteredStr += s[i];
+        // if((s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9'))  {
+        //     filteredStr += s[i];
+        //     revStr = s[i] + revStr
+        // }
     }
     // console.log(filteredStr)
 
-    return filteredStr===revStr;
+    return filteredStr===filteredStr.split('').reverse().join('');
+
+    // return filteredStr===revStr;
 
 }; 
