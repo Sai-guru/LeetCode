@@ -4,22 +4,20 @@
  */
 var isPalindrome = function(s) {
     s = s.toLowerCase();
-    let i = 0;
 
-    let j = s.length-1;
+    //filtered value 
+    let filteredStr = "";
+    let revStr = "";
 
-    while(i<j) {
-
-        if(!s[i].match(/[a-z0-9]/i)) i++;
-        else if(!s[j].match(/[a-z0-9]/i)) j--;
-        
-        else if(s[i]==s[j]) {
-            i++;j--;
+    for(let i=0;i<s.length;i++) {
+        // if(s[i].match(/[a-z0-9]/i)) filteredStr += s[i];
+        if((s[i]>='a' && s[i]<='z') || (s[i]>='0' && s[i]<='9'))  {
+            filteredStr += s[i];
+            revStr = s[i] + revStr
         }
-        else return false;
     }
-    return true;
+    // console.log(filteredStr)
 
-
+    return filteredStr===revStr;
 
 }; 
