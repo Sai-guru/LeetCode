@@ -7,37 +7,40 @@ var isAnagram = function(s, t) {
 
     if(s.length!==t.length) return false;
 
-    // let sMap = {};
-    // let tMap = {};
+    // // let sMap = {};
+    // // let tMap = {};
 
-    let sMap = new Map();
-    let tMap = new Map();
+    // let sMap = new Map();
+    // let tMap = new Map();
 
-    for(let i=0;i<s.length;i++) {
+    // for(let i=0;i<s.length;i++) {
 
-        // if(!sMap[s[i]]) sMap[s[i]]=1;
-        // else sMap[s[i]]++;
+    //     // if(!sMap[s[i]]) sMap[s[i]]=1;
+    //     // else sMap[s[i]]++;
 
-        if(!sMap.has(s[i])) sMap.set(s[i],1);
-        else sMap.set(s[i],sMap.get(s[i])+1)
+    //     if(!sMap.has(s[i])) sMap.set(s[i],1);
+    //     else sMap.set(s[i],sMap.get(s[i])+1)
 
-        // if(!tMap[t[i]]) tMap[t[i]]=1;
-        // else tMap[t[i]]++
+    //     // if(!tMap[t[i]]) tMap[t[i]]=1;
+    //     // else tMap[t[i]]++
          
-        if(!tMap.has(t[i])) tMap.set(t[i],1);
-        else tMap.set(t[i],tMap.get(t[i])+1)
-    }
+    //     if(!tMap.has(t[i])) tMap.set(t[i],1);
+    //     else tMap.set(t[i],tMap.get(t[i])+1)
+    // }
 
-    // let keyArr = Object.keys(sMap);
-    let keyArr = Array.from(sMap.keys());
-    for(let i=0;i<keyArr.length;i++) {
+    // // let keyArr = Object.keys(sMap);
+    // let keyArr = Array.from(sMap.keys());
+    // for(let i=0;i<keyArr.length;i++) {
 
-        // if(sMap[keyArr[i]]!==tMap[keyArr[i]]) return false;
+    //     // if(sMap[keyArr[i]]!==tMap[keyArr[i]]) return false;
 
-        if(sMap.get(keyArr[i])!==tMap.get(keyArr[i])) return false;
-    }
-    return true;
+    //     if(sMap.get(keyArr[i])!==tMap.get(keyArr[i])) return false;
+    // }
+    // return true;
 
+    let sArr = s.split('').sort().join('');
+    let tArr = t.split('').sort().join('');
 
-    
+    return sArr === tArr;
+
 };
