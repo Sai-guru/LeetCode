@@ -11,17 +11,19 @@ class Solution {
             char sChar = s.charAt(i);
             char tChar = t.charAt(i);
 
-            
-
             if (!s2T.containsKey(sChar) && !t2S.containsKey(tChar)) {
                 s2T.put(sChar, tChar);
                 t2S.put(tChar, sChar);
             } 
 
+            
+
             if (s2T.containsKey(sChar) != t2S.containsKey(tChar)) return false;
 
             else if(s2T.get(sChar)!=tChar || t2S.get(tChar)!=sChar) return false;
         }
+        System.out.print(s2T);
+        System.out.print(t2S);
 
         return true;
 
