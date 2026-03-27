@@ -12,7 +12,8 @@ var maxProfit = function(prices) {
 
         currP = prices[i]-currMin;
 
-        maxP = Math.max(currP,maxP);
+        // maxP = Math.max(currP,maxP);
+        if(currP > maxP) maxP = currP;
 
     }
     return maxP;
