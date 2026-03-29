@@ -3,21 +3,21 @@
  * @return {boolean}
  */
 var isValid = function(s) {
+    
     let stack = [];
+    // const map = {'(':')','{':'}','[':']'}
+    for(let i=0;i<s.length;i++) {
+        let curr = s[i];
 
-    const map = { '(':')','[':']','{':'}' };
+        if(curr=='(' || curr == '[' || curr == '{') stack.push(curr);
 
-    for(let i=0;i<s.length;i++){
+        else{
+            let top = stack.pop();
 
-        let currSymbol = s[i];
-
-        if(currSymbol =='(' || currSymbol == '[' || currSymbol == '{') {
-            stack.push(currSymbol);
-            
-        }else {
-            if(stack.length == 0 || currSymbol !== map[stack.pop()]) return false;
+        if(!top || top=='('&& curr!== ")"  ||top=='['&& curr!== "]" || top=='{'&& curr!== "}") return false;
         }
+        
     }
-    return stack.length == 0;
+    return stack.length===0;
     
 };
