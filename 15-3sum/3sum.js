@@ -2,34 +2,34 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var threeSum = function(nums) {
+var threeSum = function(arr) {
+
     let res = [];
-    nums.sort((a, b) => a - b);
+    arr.sort((a,b)=>a-b);
+    let tot = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-        if (i > 0 && nums[i] === nums[i-1]) {
-            continue;
-        }
-        
-        let j = i + 1;
-        let k = nums.length - 1;
+    for(let i=0;i<arr.length;i++) {
 
-        while (j < k) {
-            let total = nums[i] + nums[j] + nums[k];
+        let j = i+1;
+        let k = arr.length-1;
 
-            if (total > 0) {
-                k--;
-            } else if (total < 0) {
+        if(i>0 && arr[i]==arr[i-1]) continue; //ignoring this and gonna next iteration directly bcos no duplicate allowed here...-1st element
+
+        while(j<k){
+
+            tot = arr[i]+arr[j]+arr[k];
+
+            if(tot>0) k--;
+            else if(tot<0) j++;
+            else {
+                res.push([arr[i],arr[j],arr[k]]);
                 j++;
-            } else {
-                res.push([nums[i], nums[j], nums[k]]);
-                j++;
-
-                while (nums[j] === nums[j-1] && j < k) {
-                    j++;
-                }
-            }
+            
+//ignoring this and gonna next iteration directly bcos no duplicate allowed here...- 2nd element
+            while(arr[j]==arr[j-1] && j<k) j++;
+            } //else ending..
         }
     }
-    return res;    
+    return res;
+    
 };
