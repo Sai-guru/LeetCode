@@ -15,12 +15,12 @@ var sortColors = function(arr) {
             // let temp = arr[low];
             // arr[low] = arr[curr];
             // arr[curr] = temp;
-            [arr[low],arr[curr]] = [arr[curr],arr[low]];
+          [arr[curr],arr[low]] = [arr[low],arr[curr]];
             low++;curr++
 
         }else if(arr[curr]==2) {
             
-            [arr[high],arr[curr]] = [arr[curr],arr[high]];
+          [arr[curr],arr[high]] = [arr[high],arr[curr]];
             high--;
 
         }else curr++;
