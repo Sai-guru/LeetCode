@@ -17,22 +17,17 @@ var maximumSubarraySum = function(nums, k) {
 
          //if window size exceeds k, then remove the leftmost element
 
-          if (i >= k) {
-            let outNum = nums[i - k];
+          if(i>=k) {
+            let outNum = nums[i - k]
             currSum -= outNum;
-            map.set(outNum, map.get(outNum) - 1);
+            map.set(outNum, map.get(outNum)-1);
 
-          if (map.get(outNum) === 0) map.delete(outNum);
-          }
+          if(map.get(outNum) == 0) map.delete(outNum);
+        }
 
         // map is exactly size k and all elements are distinct
 
-        if (i >= k - 1 && map.size === k) maxSum = Math.max(maxSum, currSum);
+        if (i>=k-1 && map.size == k) maxSum = Math.max(maxSum, currSum);
     }
-
     return maxSum;
-
-
-
-    
 };
