@@ -12,6 +12,7 @@ class Solution {
                 if(nums[l]==0) zCount--;
                 l++;
             }
+            // l-r+1 is window size
             maxC = Math.max(maxC,r-l+1);
             r++;
         }
