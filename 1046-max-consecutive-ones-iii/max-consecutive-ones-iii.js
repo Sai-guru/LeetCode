@@ -16,7 +16,7 @@ var longestOnes = function(nums, k) {
             if(nums[l]==0) zCount--;
             l++
         }
-
+         // l-r+1 is window size
         maxC = Math.max(maxC,i-l+1);
     }
     return maxC;
