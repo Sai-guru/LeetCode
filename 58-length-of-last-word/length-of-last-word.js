@@ -4,46 +4,24 @@
  */
 var lengthOfLastWord = function(s) {
 
-    // s = s.trim().split(" ");
-    // let res = s[s.length-1].length;
+    // --simple 3 line 
 
-    // return res;
-     
-    // let n = s.length-1;
-    //trim the empty spaces at the end...
-    //traversing from end (bcos easy and fast)...
+    // s=s.trim().split(' ');
+    // let x = s[s.length-1]
+    // return x.length;
+    s=s.toLowerCase();
+    let n = s.length-1;
+    let c = 0;
 
-//     while(n>=0){
-//         if(s[n]==" ") n--;
-//         else break;
-//     }
-//    //count the length - means that after the spaces crossing we enter into the word, 
-//     //for each word's index increment the count so that we can get the length of it..
-//        let count = 0;
-//     while(n>=0) {
-//         if(s[n] != " ") {
-//             count++;
-//             n--;
-//         }else break;
-//     }
-//        return count;  
+    while(n>=0){
 
-               let n = s.length-1;
-               let c= 0;
+        if(s[n]!=' ') c++; 
+        // if(s[n]>='a' && s[n]<='z') c++;   --can also use this 
+        else if(c>0) break;
 
-               while(n>=0) {
-                
-                if(s[n]!=' ') {
-                    c++;
-                }
-                else if(c>0) {
-                    
-                    break;
-                }
-                n--;
-
-               } return c;
-
+        n--;
+    }
+    return c;
 
 
 };
