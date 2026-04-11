@@ -1,8 +1,3 @@
-import java.util.Stack;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ArrayList;
-
 class Solution {
     public boolean backspaceCompare(String s, String t) {
         return readyStr(s).equals(readyStr(t));
