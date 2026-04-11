@@ -11,7 +11,7 @@ class Solution {
         BigInteger res = new BigInteger(x);
         res = res.add(BigInteger.ONE);
 
-        System.out.println(res);
+        // System.out.println(res);
 
         return res.toString().chars().map(Character :: getNumericValue).toArray();
 
