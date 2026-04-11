@@ -40,5 +40,4 @@ var backspaceCompare = function(s, t) {
     }
     //writing the func onyl 1 time bcos both need same working ...jsut giving the ip params and ending ...
     return readyStr(s) === readyStr(t);
-    
 };
