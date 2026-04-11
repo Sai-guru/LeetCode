@@ -8,10 +8,10 @@ class Solution {
         /*
         Stack<Character> stack = new Stack<>();
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i=0; i<str.length();i++) {
             char curr = str.charAt(i);
 
-            if (curr != '#') stack.push(curr);
+            if (curr!='#') stack.push(curr);
             else if (!stack.isEmpty()) stack.pop();
         }
         // return stack.join('');
@@ -22,11 +22,11 @@ class Solution {
         Map<Integer, Character> map = new HashMap<>();
         int orderKey = 0;
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i=0; i<str.length();i++) {
             char curr = str.charAt(i);
 
-            if (curr != '#') {
-                map.put(orderKey, curr);
+            if (curr!='#') {
+                map.put(orderKey,curr);
                 orderKey++;
             } else if (orderKey > 0) {
                 orderKey--;
