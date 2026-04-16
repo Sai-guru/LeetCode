@@ -3,26 +3,24 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-    var nextGreaterElement = function(nums1, arr) {
-        let ngeMap = {};
+    var nextGreaterElement = function(nums1, nums2) {
+
+        const nge = new Map();
         let stack = [];
-        let n = arr.length;
 
-        stack.push(arr[n-1]);
-        ngeMap[arr[n-1]] = -1;
+        for(let curr of nums2){
 
-        for(let i=n-2;i>=0;i--){
-            while(stack.length && arr[i] > stack[stack.length-1]) {
-                    stack.pop();
-                }
-                if(stack.length) ngeMap[arr[i]] = stack[stack.length-1];
-                else ngeMap[arr[i]] = -1;
+            while(stack.length>0 && curr >stack[stack.length-1]) {
 
-                stack.push(arr[i]);
+                nge.set(stack.pop(),curr);
+
             }
-        //let ans = [];
-        // for(let i=0;i<nums1.length;i++) {
-        //     ans.push(ngeMap[nums1[i]]);
-        // }return ans;
-        return nums1.map((ele,_)=> ngeMap[ele]);
+            stack.push(curr);
+        }
+
+        return nums1.map(x=>nge.get(x)||-1);
+
+            
+
+        
 };
