@@ -5,20 +5,15 @@ class Solution {
 
         for(int i=0;i<strs.length;i++){
 
-            char[] curr = strs[i].toCharArray();
-            Arrays.sort(curr);
+            char[] chArr = strs[i].toCharArray();
+            Arrays.sort(chArr);
 
-            String key = new String(curr);
+            String myStr = new String(chArr);
 
-            if(!map.containsKey(key)) map.put(key, new ArrayList<>());
-
-            map.get(key).add(strs[i]);
-            
-        }
-
+            if(!map.containsKey(myStr)) map.put(myStr, new ArrayList<>());
+            map.get(myStr).add(strs[i]);
+        } 
         return new ArrayList<>(map.values());
-
-        
         
     }
 }
