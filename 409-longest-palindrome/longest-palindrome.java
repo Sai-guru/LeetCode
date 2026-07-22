@@ -1,7 +1,7 @@
 class Solution {
     public int longestPalindrome(String s) {
 
-        Map<Character,Integer> map = new LinkedHashMap<>();
+        Map<Character,Integer> map = new HashMap<>();
         int res = 0;
 
         for(int i=0;i<s.length();i++) {
